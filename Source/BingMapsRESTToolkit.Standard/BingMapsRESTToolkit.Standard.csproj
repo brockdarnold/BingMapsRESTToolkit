@@ -17,13 +17,19 @@
     <FileVersion>1.1.4.0</FileVersion>
     <AssemblyName>BingMapsRESTToolkit</AssemblyName>
     <RootNamespace>BingMapsRESTToolkit</RootNamespace>
+<<<<<<< HEAD
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+=======
+>>>>>>> ms-master/master
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="..\CustomMapStyleManager.cs" Link="CustomMapStyleManager.cs" />
+<<<<<<< HEAD
     <Compile Include="..\Enums\AutosuggestEntityType.cs" Link="Enums\AutosuggestEntityType.cs" />
     <Compile Include="..\Enums\AutosuggestLocationType.cs" Link="Enums\AutosuggestLocationType.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\Enums\AvoidType.cs" Link="Enums\AvoidType.cs" />
     <Compile Include="..\Enums\ConfidenceLevelType.cs" Link="Enums\ConfidenceLevelType.cs" />
     <Compile Include="..\Enums\DimensionUnitType.cs" Link="Enums\DimensionUnitType.cs" />
@@ -36,9 +42,12 @@
     <Compile Include="..\Enums\ImageResolutionType.cs" Link="Enums\ImageResolutionType.cs" />
     <Compile Include="..\Enums\ImageryType.cs" Link="Enums\ImageryType.cs" />
     <Compile Include="..\Enums\ManeuverType.cs" Link="Enums\ManeuverType.cs" />
+<<<<<<< HEAD
     <Compile Include="..\Enums\LocationRecogEntityTypes.cs" Link="Enums\LocationRecogEntityTypes.cs" />
     <Compile Include="..\Enums\TimeZoneStandardType.cs" Link="Enums\TimeZoneStandardType.cs" />
     
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\Enums\RouteAttributeType.cs" Link="Enums\RouteAttributeType.cs" />
     <Compile Include="..\Enums\RouteOptimizationType.cs" Link="Enums\RouteOptimizationType.cs" />
     <Compile Include="..\Enums\RouteTimeType.cs" Link="Enums\RouteTimeType.cs" />
@@ -68,7 +77,10 @@
     <Compile Include="..\Models\CustomMapStyles\MapElements.cs" Link="Models\CustomMapStyles\MapElements.cs" />
     <Compile Include="..\Models\CustomMapStyles\MapElementStyle.cs" Link="Models\CustomMapStyles\MapElementStyle.cs" />
     <Compile Include="..\Models\CustomMapStyles\SettingsStyle.cs" Link="Models\CustomMapStyles\SettingsStyle.cs" />
+<<<<<<< HEAD
     <Compile Include="..\Models\CircularView.cs" Link="Models\CircularView.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\Models\ImageryPushpin.cs" Link="Models\ImageryPushpin.cs" />
     <Compile Include="..\Models\PointCompression.cs" Link="Models\PointCompression.cs" />
     <Compile Include="..\Models\ResponseModels\Address.cs" Link="Models\ResponseModels\Address.cs" />
@@ -116,6 +128,7 @@
     <Compile Include="..\Models\ResponseModels\TransitLine.cs" Link="Models\ResponseModels\TransitLine.cs" />
     <Compile Include="..\Models\ResponseModels\Warning.cs" Link="Models\ResponseModels\Warning.cs" />
     <Compile Include="..\Models\ResponseModels\Waypoint.cs" Link="Models\ResponseModels\Waypoint.cs" />
+<<<<<<< HEAD
 
     <Compile Include="..\Models\ResponseModels\NaturalPOIAtLocationEntity.cs" Link="Models\ResponseModels\NaturalPOIAtLocationEntity.cs" />
     <Compile Include="..\Models\ResponseModels\LocationRecog.cs" Link="Models\ResponseModels\LocationRecog.cs" />
@@ -130,11 +143,16 @@
     
 
 
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\Models\RouteOptions.cs" Link="Models\RouteOptions.cs" />
     <Compile Include="..\Models\SimpleAddress.cs" Link="Models\SimpleAddress.cs" />
     <Compile Include="..\Models\SimpleWaypoint.cs" Link="Models\SimpleWaypoint.cs" />
     <Compile Include="..\Models\VehicleSpec.cs" Link="Models\VehicleSpec.cs" />
+<<<<<<< HEAD
     <Compile Include="..\Requests\AutosuggestRequest.cs" Link="Requests\AutosuggestRequest.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\Requests\BaseImageryRestRequest.cs" Link="Requests\BaseImageryRestRequest.cs" />
     <Compile Include="..\Requests\BaseRestRequest.cs" Link="Requests\BaseRestRequest.cs" />
     <Compile Include="..\Requests\DistanceMatrixRequest.cs" Link="Requests\DistanceMatrixRequest.cs" />
@@ -149,6 +167,7 @@
     <Compile Include="..\Requests\RouteRequest.cs" Link="Requests\RouteRequest.cs" />
     <Compile Include="..\Requests\SnapToRoadRequest.cs" Link="Requests\SnapToRoadRequest.cs" />
     <Compile Include="..\Requests\TrafficRequest.cs" Link="Requests\TrafficRequest.cs" />
+<<<<<<< HEAD
     <Compile Include="..\Requests\LocationRecogRequest.cs" Link="Requests\LocationRecogRequest.cs" />
 
     <Compile Include="..\Requests\ConvertTimeZoneRequest.cs" Link="Requests\ConvertTimeZoneRequest.cs" />
@@ -156,10 +175,16 @@
     <Compile Include="..\Requests\FindTimeZoneRequest.cs" Link="Requests\FindTimeZoneRequest.cs" />
     
 
+=======
+>>>>>>> ms-master/master
     <Compile Include="..\ServiceManager.cs" Link="ServiceManager.cs" />
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Folder Include="Enums\" />
+>>>>>>> ms-master/master
     <Folder Include="Extensions\TSP Resources\" />
     <Folder Include="Models\CustomMapStyles\" />
     <Folder Include="Models\ResponseModels\" />

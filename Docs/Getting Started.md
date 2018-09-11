@@ -68,10 +68,13 @@ Download the source code and add the BingMapsRESTToolkit project to your solutio
 
 The Bing Maps REST Toolkit has two key components, a service manager and a set of request classes. The [ServiceManager](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#ServiceManager) is a static class that makes it easy to asynchronously process any Bing Maps REST request which inherits from the [BaseRestReuqest](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#BaseRestRequest) class. Here is a list of the different requests classes available:
 
+<<<<<<< HEAD
 - [**(NEW)** Time Zone API Request Classes](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#TimeZoneAPI)
 
 - [**(NEW**) LocationRecogRequest Class](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#LocationRecogRequest) 
 
+=======
+>>>>>>> ms-master/master
 -   [DistanceMatrixRequest Class](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#DistanceMatrixRequest)
 
 -   [ElevationRequest Class](https://github.com/Microsoft/BingMapsRESTToolkit/blob/master/Docs/API%20Reference.md#ElevationRequest)
