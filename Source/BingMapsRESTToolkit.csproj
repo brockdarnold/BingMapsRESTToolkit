@@ -39,8 +39,11 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Enums\AutosuggestEntityType.cs" />
     <Compile Include="Enums\AutosuggestLocationType.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Enums\AvoidType.cs" />
     <Compile Include="Enums\ConfidenceLevelType.cs" />
     <Compile Include="Enums\DimensionUnitType.cs" />
@@ -49,14 +52,20 @@
     <Compile Include="Enums\ImageResolutionType.cs" />
     <Compile Include="Enums\ImageFormatType.cs" />
     <Compile Include="Enums\ImageryType.cs" />
+<<<<<<< HEAD
     <Compile Include="Enums\LocationRecogEntityTypes.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Enums\ManeuverType.cs" />
     <Compile Include="Enums\RouteAttributeType.cs" />
     <Compile Include="Enums\RouteOptimizationType.cs" />
     <Compile Include="Enums\RouteTimeType.cs" />
     <Compile Include="Enums\SpeedUnitType.cs" />
     <Compile Include="Enums\TimeUnitType.cs" />
+<<<<<<< HEAD
     <Compile Include="Enums\TimeZoneStandardType.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Enums\TravelModeType.cs" />
     <Compile Include="Enums\SeverityType.cs" />
     <Compile Include="Enums\TrafficType.cs" />
@@ -81,17 +90,25 @@
     <Compile Include="Models\CustomMapStyles\MapElementStyle.cs" />
     <Compile Include="Models\CustomMapStyles\SettingsStyle.cs" />
     <Compile Include="Models\ImageryPushpin.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ResponseModels\AutosuggestResource.cs" />
     <Compile Include="Models\ResponseModels\BirdseyeMetadata.cs" />
     <Compile Include="Models\ResponseModels\BusinessInfoEntity.cs" />
     <Compile Include="Models\ResponseModels\CompressedPointList.cs" />
     <Compile Include="Models\ResponseModels\ConvertedTimeResource.cs" />
+=======
+    <Compile Include="Models\ResponseModels\BirdseyeMetadata.cs" />
+    <Compile Include="Models\ResponseModels\CompressedPointList.cs" />
+>>>>>>> ms-master/master
     <Compile Include="Models\ResponseModels\CoverageArea.cs" />
     <Compile Include="Models\ResponseModels\Detail.cs" />
     <Compile Include="Models\ResponseModels\DistanceMatrix.cs" />
     <Compile Include="Models\ResponseModels\DistanceMatrixCell.cs" />
     <Compile Include="Models\ResponseModels\DistanceMatrixAsyncStatus.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ResponseModels\DstRuleResource.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Models\ResponseModels\ElevationData.cs" />
     <Compile Include="Models\ResponseModels\Generalization.cs" />
     <Compile Include="Models\ResponseModels\GeospatialEndpointResponse.cs" />
@@ -101,9 +118,12 @@
     <Compile Include="Models\ResponseModels\ImageryMetadata.cs" />
     <Compile Include="Models\ResponseModels\ImageryProvider.cs" />
     <Compile Include="Models\ResponseModels\Instruction.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ResponseModels\LocalBusiness.cs" />
     <Compile Include="Models\ResponseModels\LocationRecog.cs" />
     <Compile Include="Models\ResponseModels\NaturalPOIAtLocationEntity.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Models\ResponseModels\RouteProxyAsyncResult.cs" />
     <Compile Include="Models\ResponseModels\IsochroneResponse.cs" />
     <Compile Include="Models\ResponseModels\ItineraryItem.cs" />
@@ -128,19 +148,28 @@
     <Compile Include="Models\ResponseModels\SnappedPoint.cs" />
     <Compile Include="Models\ResponseModels\SnapToRoadResponse.cs" />
     <Compile Include="Models\ResponseModels\StaticMapMetadata.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\ResponseModels\RESTTimeZone.cs" />
     <Compile Include="Models\ResponseModels\TimeZoneResponse.cs" />
     <Compile Include="Models\ResponseModels\TrafficIncident.cs" />
     <Compile Include="Models\ResponseModels\TransitLine.cs" />
     <Compile Include="Models\CircularView.cs" />
+=======
+    <Compile Include="Models\ResponseModels\TrafficIncident.cs" />
+    <Compile Include="Models\ResponseModels\TransitLine.cs" />
+>>>>>>> ms-master/master
     <Compile Include="Models\ResponseModels\Warning.cs" />
     <Compile Include="Models\ResponseModels\Waypoint.cs" />
     <Compile Include="Models\RouteOptions.cs" />
     <Compile Include="Models\VehicleSpec.cs" />
+<<<<<<< HEAD
     <Compile Include="Requests\AutosuggestRequest.cs" />
     <Compile Include="Requests\ConvertTimeZoneRequest.cs" />
     <Compile Include="Requests\DistanceMatrixRequest.cs" />
     <Compile Include="Requests\FindTimeZoneRequest.cs" />
+=======
+    <Compile Include="Requests\DistanceMatrixRequest.cs" />
+>>>>>>> ms-master/master
     <Compile Include="Requests\GeospatialEndpointRequest.cs" />
     <Compile Include="Requests\ImageryMetadataRequest.cs" />
     <Compile Include="Requests\ImageryRequest.cs" />
@@ -153,8 +182,11 @@
     <Compile Include="Enums\EntityType.cs" />
     <Compile Include="Internal\ServiceHelper.cs" />
     <Compile Include="Requests\IsochroneRequest.cs" />
+<<<<<<< HEAD
     <Compile Include="Requests\ListTimeZonesRequest.cs" />
     <Compile Include="Requests\LocationRecogRequest.cs" />
+=======
+>>>>>>> ms-master/master
     <Compile Include="Requests\SnapToRoadRequest.cs" />
     <Compile Include="Internal\SpatialTools.cs" />
     <Compile Include="Models\SimpleAddress.cs" />

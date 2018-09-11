@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿/*
  * Copyright(c) 2018 Microsoft Corporation. All rights reserved. 
  * 
@@ -22,6 +23,9 @@
  * THE SOFTWARE. 
 */
 namespace BingMapsRESTToolkit
+=======
+﻿namespace BingMapsRESTToolkit
+>>>>>>> ms-master/master
 {
     /// <summary>
     /// Hazardous materials in which a truck may transport.
