@@ -42,6 +42,7 @@ namespace BingMapsRESTToolkit
     [KnownType(typeof(DistanceMatrixAsyncStatus))]
     [KnownType(typeof(IsochroneResponse))]
     [KnownType(typeof(SnapToRoadResponse))]
+<<<<<<< HEAD
     [KnownType(typeof(LocationRecog))]
     [KnownType(typeof(TimeZoneResponse))]
     [KnownType(typeof(RESTTimeZone))]
@@ -50,6 +51,8 @@ namespace BingMapsRESTToolkit
     [KnownType(typeof(AutoSuggestLocalBusinessResource))]
     [KnownType(typeof(AutoSuggestPlaceResource))]
     [KnownType(typeof(AutosuggestAddressResource))]
+=======
+>>>>>>> ms-master/master
     public class Resource
     {
         /// <summary>

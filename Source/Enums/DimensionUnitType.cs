@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿/*
  * Copyright(c) 2018 Microsoft Corporation. All rights reserved. 
  * 
@@ -23,6 +24,9 @@
 */
 
 namespace BingMapsRESTToolkit
+=======
+﻿namespace BingMapsRESTToolkit
+>>>>>>> ms-master/master
 {
     /// <summary>
     /// Measurement units of vehicle dimensions.

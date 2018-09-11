@@ -82,8 +82,13 @@ namespace BingMapsRESTToolkit
         /// <summary>
         /// Details of an error that may have occurred when processing the request.
         /// </summary>
+<<<<<<< HEAD
         [DataMember(Name = "errorMessage", EmitDefaultValue = false)]
         public string ErrorMessage { get; set; }
+=======
+       // [DataMember(Name = "errorMessage", EmitDefaultValue = false)]
+       // public string ErrorMessage { get; set; }
+>>>>>>> ms-master/master
 
         /// <summary>
         /// Array of distance matrix cell results containing information for each coordinate pair and time interval.

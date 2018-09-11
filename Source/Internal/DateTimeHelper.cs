@@ -30,6 +30,7 @@ namespace BingMapsRESTToolkit
     /// <summary>
     /// A helper class for working iwth OData Dates.
     /// </summary>
+<<<<<<< HEAD
     public static class DateTimeHelper
     {
         private static string dt_format = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'";
@@ -54,6 +55,10 @@ namespace BingMapsRESTToolkit
             return DateTime.Parse(dt_string);
         }
 
+=======
+    internal static class DateTimeHelper
+    {
+>>>>>>> ms-master/master
         /// <summary>
         /// Converts a DateTime object into an OData date.
         /// </summary>
