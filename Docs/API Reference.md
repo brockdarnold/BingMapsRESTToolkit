@@ -380,7 +380,6 @@ Some additional options have been added to the route request to increase its fun
 
 | Name         | Type                       | Description       |
 |--------------|----------------------------|-------------------|
-<<<<<<< HEAD
 | `BatchSize` | `int` | The maximium number of waypoints that can be in a single request. If the batchSize is smaller than the number of waypoints, when the request is executed, it will break the request up into multiple requests, thus allowing routes with more than 25 waypoints to be . Must by between 2 and 25. Default: 25. |
 | `WaypointOptimization` | [TspOptimizationType](#TspOptimizationType) | Specifies if the waypoint order should be optimized using a travelling salesmen algorithm which metric to optimize on. If less than 10 waypoints, brute force is used, for more than 10 waypoints, a genetic algorithm is used.  Ignores IsViaPoint on waypoints and makes them waypoints. Default: **false**<br/><br/>**Warning**: If travel time or travel distance is used, a standard Bing Maps key will need to be required, not a session key, as the distance matrix API will be used to process the waypoints. This can generate a lot of billable transactions. |
 
@@ -517,54 +516,6 @@ Requests an image from the REST imagery service. Inherits from the BaseImageryRe
 | `Style`           | `string` | The custom map style to apply to the image. |
 | `Waypoints`       | `List<SimpleWaypoint>` | Specifies two or more locations that define the route and that are in sequential order. A route is defined by a set of waypoints and viaWaypoints (intermediate locations that the route must pass through). You can have a maximum of 25 waypoints, and a maximum of 10 viaWaypoints between each set of waypoints. The start and end points of the route cannot be viaWaypoints. |
 | `ZoomLevel` | `int`                        | The level of zoom to display.  |
-=======
-| BatchSize | int | The maximium number of waypoints that can be in a single request. If the batchSize is smaller than the number of waypoints, when the request is executed, it will break the request up into multiple requests, thus allowing routes with more than 25 waypoints to be . Must by between 2 and 25. Default: 25. |
-| WaypointOptimization | [TspOptimizationType](#TspOptimizationType) | Specifies if the waypoint order should be optimized using a travelling salesmen algorithm which metric to optimize on. If less than 10 waypoints, brute force is used, for more than 10 waypoints, a genetic algorithm is used.  Ignores IsViaPoint on waypoints and makes them waypoints. Default: **false**<br/><br/>**Warning**: If travel time or travel distance is used, a standard Bing Maps key will need to be required, not a session key, as the distance matrix API will be used to process the waypoints. This can generate a lot of billable transactions. |
-
-## <a name="SnapToRoadRequest"></a> SnapToRoadRequest Class
-
-Snaps a set of coordinates to roads. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                                   |
-|-----------------|-------------|---------------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL to perform a snap to road query. |
-
-### Properties
-
-| Name         | Type                       | Description       |
-|--------------|----------------------------|-------------------|
-| Points | List\<Coordinate\> | A set of points to snap to roads. Up to 100 �points may be passed in. |
-| Interpolate | bool | Indicates if the space between the snapped points should be filled with additional points along the road, thus returning the full route path. Default: false |
-| IncludeSpeedLimit | bool | Indicates if speed limitation data should be returned for the snapped points. Default: false |
-| IncludeTruckSpeedLimit� | bool | Indicates if speed limitation data should be returned for the snapped points. Default: false |
-| SpeedUnit� | [SpeedUnitType](#SpeedUnitType) | Indicates the units in which the returned speed limit data is in. |
-| TravelMode | [TravelModeType](#TravelModeType)  | Indicates which routing profile to snap the points to. Default: Driving |
-
-## <a name="TrafficRequest"></a> TrafficRequest Class
-
-Requests traffic information. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                               |
-|-----------------|-------------|-----------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                  |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.       |
-| GetRequestUrl() | string      | Gets a URL for requesting traffic data for a GET request. |
-
-### Properties
-
-| Name                 | Type                     | Description    |
-|----------------------|--------------------------|----------------|
-| IncludeLocationCodes | bool                     | Specifies whether to include traffic location codes in the response. Traffic location codes provide traffic incident information for pre-defined road segments. A subscription is typically required to be able to interpret these codes for a geographical area or country. Default is **false**. |
-| MapArea              | [BoundingBox](#BoundingBox)              | Specifies the area to search for traffic incident information. A rectangular area specified as a bounding box. The size of the area can be a maximum of 500 km x 500 km.                     |
-| Severity             | List\<SeverityType\> | Specifies severity level of traffic incidents to return. The default is to return traffic incidents for all severity levels.   |
-| TrafficType          | List\<TrafficType\>;  | Specifies the type of traffic incidents to return. |
->>>>>>> ms-master/master
 
 # <a name="CommonClasses"></a> Common Classes
 
@@ -574,27 +525,16 @@ Requests traffic information. Inherits from the BaseRestRequest class.
 
 | Name       | Return Type | Description |
 |------------|-------------|-------------|
-<<<<<<< HEAD
 | ToString() | `string`      | Returns a string in the format `SouthLatitude,WestLongitude,NorthLatitude,EastLongitude` |
-=======
-| ToString() | string      | Returns a string in the format `SouthLatitude,WestLongitude,NorthLatitude,EastLongitude` |
->>>>>>> ms-master/master
 
 ### Properties
 
 | Name          | Type   | Description |
 |---------------|--------|-------------|
-<<<<<<< HEAD
 | EastLongitude | `double`  | The eastern most longitude value. |
 | NorthLatitude | `double`  | The northern most latitude value. |
 | SouthLatitude | `double`  | The southern most latitude value. |
 | WestLongitude | `double`  | The western most longitude value. |
-=======
-| EastLongitude | double | The eastern most longitude value. |
-| NorthLatitude | double | The northern most latitude value. |
-| SouthLatitude | double | The southern most latitude value. |
-| WestLongitude | double | The western most longitude value. |
->>>>>>> ms-master/master
 
 ## <a name="Coordinate"></a> Coordinate Class
 
@@ -610,31 +550,18 @@ A class that defines location coordinate value.
 
 | Name      | Type   | Description           |
 |-----------|--------|-----------------------|
-<<<<<<< HEAD
 | Latitude  | `double`  | Latitude coordinate.  |
 | Longitude | `double`  | Longitude coordinate. |
 
 ## <a name="CustomMapStyleManager"></a> CustomMapStyleManager Class
 
 A static class to assist with working with Bing Maps Customer Map Styles.
-=======
-| Latitude  | double | Latitude coordinate.  |
-| Longitude | double | Longitude coordinate. |
-
-## <a name="CustomMapStyleManager"></a> CustomMapStyleManager Class
-
-A static class to assit with working with Bing Maps Customer Map Styles.
->>>>>>> ms-master/master
 
 ### Static Methods
 
 | Name                                                 | Return Type          | Description          |
 |------------------------------------------------------|----------------------|----------------------|
-<<<<<<< HEAD
 | GetRestStyle(string style)    | `string` | Converts a custom JSON map style, into a style using the REST parameter format. If the style is already in the REST parameter formatter, it will be unaltered.  |
-=======
-| GetRestStyle(string style)    | string | Converts a custom JSON map style, into a style using the REST parameter format. If the style is already in the REST parameter formatter, it will be unaltered.  |
->>>>>>> ms-master/master
 
 
 ## <a name="ImageryPushpin"></a> ImageryPushpin Class
@@ -645,25 +572,15 @@ Pushpin defination for Bing Maps REST imagery service as documented [here](https
 
 | Name       | Return Type | Description    |
 |------------|-------------|----------------|
-<<<<<<< HEAD
 | ToString() | `string`      | Returns a string version of the pushpin in the format `pushpin=latitude,longitude;iconStyle;label` |
-=======
-| ToString() | string      | Returns a string version of the pushpin in the format `pushpin=latitude,longitude;iconStyle;label` |
->>>>>>> ms-master/master
 
 ### Properties
 
 | Name      | Type       | Description                            |
 |-----------|------------|----------------------------------------|
-<<<<<<< HEAD
 | IconStyle | `int`        | The icon style to use for the pushpin. |
 | Label     | `string`     | Label to display on top of pushpin.    |
 | Location  | [`Coordinate`](#Coordinate) | Coordinate to display pushpin.   |
-=======
-| IconStyle | int        | The icon style to use for the pushpin. |
-| Label     | string     | Label to display on top of pushpin.    |
-| Location  | [Coordinate](#Coordinate) | Coordinate to display pushpin.   |
->>>>>>> ms-master/master
 
 ## <a name="PointCompression"></a> PointCompression Class
 
@@ -679,13 +596,8 @@ These algorithms come from the following documentation:
 
 | Name                                                            | Return Type | Description |
 |-----------------------------------------------------------------|-------------|-------------|
-<<<<<<< HEAD
 | Encode(List\<[Coordinate](#Coordinate\> points)                           | `string`      | Compresses a list of coordinates into a string. Based on: [http://msdn.microsoft.com/en-us/library/jj158958.aspx](http://msdn.microsoft.com/en-us/library/jj158958.aspx)  |
 | TryDecode(string value, out List\<[Coordinate](#Coordinate)\> parsedValue) | `bool`         | Decodes a collection of coordinates from a compressed string. Returns a boolean indicating if the algorithm was able to decode the compressed coordinates or not. Based on: [http://msdn.microsoft.com/en-us/library/dn306801.aspx](http://msdn.microsoft.com/en-us/library/dn306801.aspx) |
-=======
-| Encode(List\<[Coordinate](#Coordinate\> points)                           | string      | Compresses a list of coordinates into a string. Based on: [http://msdn.microsoft.com/en-us/library/jj158958.aspx](http://msdn.microsoft.com/en-us/library/jj158958.aspx)  |
-| TryDecode(string value, out List\<[Coordinate](#Coordinate)\> parsedValue) | bool        | Decodes a collection of coordinates from a compressed string. Returns a boolean indicating if the algorithm was able to decode the compressed coordinates or not. Based on: [http://msdn.microsoft.com/en-us/library/dn306801.aspx](http://msdn.microsoft.com/en-us/library/dn306801.aspx) |
->>>>>>> ms-master/master
 
 ## <a name="RouteOptions"></a> RouteOptions Class
 
@@ -697,17 +609,10 @@ A class that defines the options that can to use when calculating a route.
 |-------------------------|--------------------------------|---------------|
 | Avoid                   | List\<[AvoidType](#AvoidType)\>          | Specifies the road types to minimize or avoid when a route is created for the driving travel mode.  |
 | DateTime                | DateTime                       | The dateTime parameter identifies the desired time to be used when calculating a route. This is supported by driving and transit routes. When calculating, driving routes the route optimization type should be TimeWithTraffic. The route time will be used as the departure time. When calculating transit routes timeType can be specified. |
-<<<<<<< HEAD
 | DistanceBeforeFirstTurn | `int`                            | Specifies the distance before the first turn is allowed in the route. This option only applies to the driving travel mode. An integer distance specified in meters. Use this parameter to make sure that the moving vehicle has enough distance to make the first turn. |
 | DistanceUnits           | [DistanceUnitType](#DistanceUnitType)               | The units to use for distance. |
 | Heading                 | `int`                            | Specifies the initial heading for the route. An integer value between 0 and 359 that represents degrees from north where north is 0 degrees and the heading is specified clockwise from north. |
 | MaxSolutions            | `int`                            | Specifies the maximum number of transit or driving routes to return. An interger between 1 and 3. This parameter is available for the Driving and Transit travel modes for routes between two waypoints. This parameter does not support routes with more than two waypoints. For driving routes, you must not set the avoid and distanceBeforeFirstTurn parameters. The maxSolutions parameter is supported for routes in the United States, Canada, Mexico, United Kingdom, Australia, and India. |
-=======
-| DistanceBeforeFirstTurn | int                            | Specifies the distance before the first turn is allowed in the route. This option only applies to the driving travel mode. An integer distance specified in meters. Use this parameter to make sure that the moving vehicle has enough distance to make the first turn. |
-| DistanceUnits           | [DistanceUnitType](#DistanceUnitType)               | The units to use for distance. |
-| Heading                 | int                            | Specifies the initial heading for the route. An integer value between 0 and 359 that represents degrees from north where north is 0 degrees and the heading is specified clockwise from north. |
-| MaxSolutions            | int                            | Specifies the maximum number of transit or driving routes to return. An interger between 1 and 3. This parameter is available for the Driving and Transit travel modes for routes between two waypoints. This parameter does not support routes with more than two waypoints. For driving routes, you must not set the avoid and distanceBeforeFirstTurn parameters. The maxSolutions parameter is supported for routes in the United States, Canada, Mexico, United Kingdom, Australia, and India. |
->>>>>>> ms-master/master
 | Optimize                | [RouteOptimizationType](#RouteOptimizationType)          | Specifies what parameters to use to optimize the route. |
 | RouteAttributes         | List\<[RouteAttributeType](#RouteAttributeType)\> | Specifies to include or exclude parts of the routes response. |
 | TimeType                | [RouteTimeType](#RouteTimeType)                  | Specifies how to interpret the date and transit time value that is specified by the dateTime parameter.   |
@@ -724,23 +629,14 @@ This is a static class that is used for processing all requests to the Bing Maps
 | Name          | Type      | Description   |
 |---------------|-----------|---------------|
 | Proxy         | IWebProxy |  Proxy settings to be used when making web requests.  |
-<<<<<<< HEAD
 | QpsLimit      | `int`       | The number of queries per second to limit certain requests to. This is primarily used when batching multiple requests in a single process such as when geoeocidng all waypoints for the distance matrix API, or when manually generating a truck based distance matrix using the routing API.  | 
-=======
-| QpsLimit      | int       | The number of queries per second to limit certain requests to. This is primarily used when batching multiple requests in a single process such as when geoeocidng all waypoints for the distance matrix API, or when manually generating a truck based distance matrix using the routing API.  | 
->>>>>>> ms-master/master
 
 ### Static Methods
 
 | Name                                                 | Return Type          | Description          |
 |------------------------------------------------------|----------------------|----------------------|
-<<<<<<< HEAD
 | GetResponseAsync([BaseRestRequest](#BaseRestRequest) request)            | `Task<Response>`| Processes a REST requests that returns data.            |
 | GetResponseAsync([BaseRestRequest](#BaseRestRequest) request, Action\<int\> remainingTimeCallback)            | `Task<Response>` | Processes a REST requests that returns data.            |
-=======
-| GetResponseAsync([BaseRestRequest](#BaseRestRequest) request)            | Task\<Response\>| Processes a REST requests that returns data.            |
-| GetResponseAsync([BaseRestRequest](#BaseRestRequest) request, Action\<int\> remainingTimeCallback)            | Task\<Response\> | Processes a REST requests that returns data.            |
->>>>>>> ms-master/master
 | GetImageAsync([BaseImageryRestRequest](#BaseImageryRestRequest) imageryRequest) | Task\<Stream\>   | Processes a REST requests that returns an image stream. |
 
 ## <a name="SimpleAddress"></a> SimpleAddress Class
@@ -751,19 +647,11 @@ A simple address class that can be passed in to queries.
 
 | Name          | Type   | Description   |
 |---------------|--------|---------------|
-<<<<<<< HEAD
 | AddressLine   | `string` | The official street line of an address relative to the area, as specified by the Locality, or PostalCode, properties. Typical use of this element would be to provide a street address or any official address.   |
 | AdminDistrict | `string` | The subdivision name in the country or region for an address. This element is typically treated as the first order administrative subdivision, but in some cases, it is the second, third, or fourth order subdivision in a country, dependency, or region. |
 | CountryRegion | `string` | The ISO country code for the country.     |
 | Locality      | `string` | The locality, such as the city or neighborhood, that corresponds to an address.  |
 | PostalCode    | `string` | The post code, postal code, or ZIP Code of an address. |
-=======
-| AddressLine   | string | The official street line of an address relative to the area, as specified by the Locality, or PostalCode, properties. Typical use of this element would be to provide a street address or any official address.   |
-| AdminDistrict | string | The subdivision name in the country or region for an address. This element is typically treated as the first order administrative subdivision, but in some cases, it is the second, third, or fourth order subdivision in a country, dependency, or region. |
-| CountryRegion | string | The ISO country code for the country.     |
-| Locality      | string | The locality, such as the city or neighborhood, that corresponds to an address.  |
-| PostalCode    | string | The post code, postal code, or ZIP Code of an address. |
->>>>>>> ms-master/master
 
 ## <a name="SimpleWaypoint"></a> SimpleWaypoint Class
 
@@ -773,19 +661,11 @@ A simple waypoint class that can be used to calculate a route.
 
 > SimpleWaypoint()
 
-<<<<<<< HEAD
 > SimpleWaypoint([`Coordinate`](#Coordinate) coordinate)
 
 > SimpleWaypoint(string address)
 
 > SimpleWaypoint([`Coordinate`](#Coordinate) coordinate, string address)
-=======
-> SimpleWaypoint([Coordinate](#Coordinate) coordinate)
-
-> SimpleWaypoint(string address)
-
-> SimpleWaypoint([Coordinate](#Coordinate) coordinate, string address)
->>>>>>> ms-master/master
 
 > SimpleWaypoint(double latitude, double longitude) 
 
@@ -800,15 +680,9 @@ A simple waypoint class that can be used to calculate a route.
 
 | Name       | Type       | Description   |
 |------------|------------|---------------|
-<<<<<<< HEAD
 | Address    | `string`     | The address query for the waypoint.    |
 | Coordinate | [`Coordinate`](#Coordinate) | The coordinate of the waypoint. When specified this will be used instead of the Address value in requests. |
 | IsViaPoint | `bool`        | A bool indicating whether the waypoint is a via point.           |
-=======
-| Address    | string     | The address query for the waypoint.    |
-| Coordinate | [Coordinate](#Coordinate) | The coordinate of the waypoint. When specified this will be used instead of the Address value in requests. |
-| IsViaPoint | bool       | A bool indicating whether the waypoint is a via point.           |
->>>>>>> ms-master/master
 
 ## <a name="VehicleSpec"></a> VehicleSpec Class
 
@@ -820,7 +694,6 @@ A class that defines the options that can to use when calculating a truck route.
 |-------------------------|--------------------------------|--------------------|
 | DimensionUnit | [DimensionUnitType](#DimensionUnitType) | The unit of measurement of width, height, length. |
 | WeightUnit | [WeightUnitType](#WeightUnitType) | The unit of measurement of weight. |
-<<<<<<< HEAD
 | VehicleHeight | `double`  | The height of the vehicle in the specified dimension units. |
 | VehicleWidth | `double`  | The width of the vehicle in the specified dimension units. |
 | VehicleLength | `double`  | The length of the vehicle in the specified dimension units. |
@@ -832,19 +705,6 @@ A class that defines the options that can to use when calculating a truck route.
 | VehicleMinTurnRadius | `double`  | The mini-mum required radius for the vehicle to turn in the specified dimension units. |
 | VehicleAvoidCrossWind | `bool`  | Indicates if the vehicle shall avoid crosswinds. |
 | VehicleAvoidGroundingRisk | `bool`  | Indicates if the route shall avoid the risk of grounding. |
-=======
-| VehicleHeight | double | The height of the vehicle in the specified dimension units. |
-| VehicleWidth | double | The width of the vehicle in the specified dimension units. |
-| VehicleLength | double | The length of the vehicle in the specified dimension units. |
-| VehicleWeight | double | The weight of the vehicle in the specified weight units. |
-| VehicleAxles | int | The number of axles. |
-| VehicleSemi | bool | Indicates if the truck is pulling a semi-trailer. Semi-trailer restrictions are mostly used in North America. |
-| VehicleTrailers | int | Specifies number of trailers pulled by a vehicle. The provided value must be between 0 and 4.  |
-| VehicleMaxGradient | double | The max gradient the vehicle can drive measured in degrees. |
-| VehicleMinTurnRadius | double | The mini-mum required radius for the vehicle to turn in the specified dimension units. |
-| VehicleAvoidCrossWind | bool | Indicates if the vehicle shall avoid crosswinds. |
-| VehicleAvoidGroundingRisk | bool | Indicates if the route shall avoid the risk of grounding. |
->>>>>>> ms-master/master
 | VehicleHazardousMaterials | List\<[HazardousMaterialType](#HazardousMaterialType)\> | A list of one or more hazardous materials for which the vehicle is transporting. |
 | VehicleHazardousPermits | List\<[HazardousMaterialPermitType](#HazardousMaterialPermitType)\> | A list of one or more hazardous materials for which the vehicle has permits. |
 
@@ -898,11 +758,7 @@ Relative elevation type.
 | Name       | Description                       |
 |------------|-----------------------------------|
 | Ellipsoid  | Ellipsoid Earth model (WGS84).    |
-<<<<<<< HEAD
 | Sealevel   | Geoid Earth model (EGM2008 2.5-). |
-=======
-| Sealevel   | Geoid Earth model (EGM2008 2.5�). |
->>>>>>> ms-master/master
 
 ## <a name="EntityType"></a> EntityType Enumeration
 
@@ -973,17 +829,10 @@ Types of map imagery.
 | Aerial              | Aerial imagery.                         |
 | AerialWithLabels    | Aerial imagery with a road overlay.     |
 | AerialWithLabelsOnDemand | Aerial imagery with on-demand road overlay. |
-<<<<<<< HEAD
 | Birdseye            | Bird-s eye (oblique-angle) imagery      |
 | BirdseyeWithLabels  | Bird-s eye imagery with a road overlay. |
 | BirdseyeV2            | The second generation Bird-s eye (oblique-angle) imagery.      |
 | BirdseyeV2WithLabels  | The second generation Bird-s eye (oblique-angle) imagerywith a road overlay. |
-=======
-| Birdseye            | Bird�s eye (oblique-angle) imagery      |
-| BirdseyeWithLabels  | Bird�s eye imagery with a road overlay. |
-| BirdseyeV2            | The second generation Bird�s eye (oblique-angle) imagery.      |
-| BirdseyeV2WithLabels  | The second generation Bird�s eye (oblique-angle) imagerywith a road overlay. |
->>>>>>> ms-master/master
 | CanvasDark | A dark version of the road maps. |
 | CanvasGray | A grayscale version of the road maps. |
 | CanvasLight | A lighter version of the road maps which also has some of the details such as hill shading disabled. |
@@ -999,11 +848,7 @@ The type of route attributes to include in a route response.
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All                 | Used to specify the following attributes as a group: excluteItinerary, routePath, and transitStops.                                                                                  |
 | ExcludeItinerary    | Do not include detailed directions in the response. Detailed directions are provided as itinerary items and contain details such as written instructions and traffic location codes. |
-<<<<<<< HEAD
 | RoutePath           | Include a set of point (latitude and longitude) values that describe the route-s path in the response.                                                                               |
-=======
-| RoutePath           | Include a set of point (latitude and longitude) values that describe the route�s path in the response.                                                                               |
->>>>>>> ms-master/master
 | RouteSummariesOnly  | Include only travel time and distance for the route, and does not provide other information.                                                                                         |
 | TransitStops        | Include information about transit stops for transit routes.                                                                                                                          |
 
@@ -1117,7 +962,6 @@ An indexing system has been added to the DistanceMatrix class to make it easy to
 | GetCell(int originIdx, int destinationIdx, DateTime timeInterval) | DistanceMatrixCell | Retrives the distance matrix cell for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetCell(int originIdx, int destinationIdx, int timeIntervalIdx) | DistanceMatrixCell | Retrives the distance matrix cell for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetCells(int originIdx, int destinationIdx) | DistanceMatrixCell[] | Gets all cells for the specified origin and destination index, ordered by time (ascending). |
-<<<<<<< HEAD
 | GetDistance(int originIdx, int destinationIdx) | `double`  | Retrives the travel distance for a specified origin-destination pair. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetDistance(int originIdx, int destinationIdx, DateTime timeInterval) | `double`  | Retrives the travel distance for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetDistance(int originIdx, int destinationIdx, int timeIntervalIdx) | `double`  | Retrives the travel distance for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
@@ -1129,19 +973,6 @@ An indexing system has been added to the DistanceMatrix class to make it easy to
 | GetTime(int originIdx, int destinationIdx) | `double`  | Retrives the travel time for a specified origin-destination pair. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetTime(int originIdx, int destinationIdx, DateTime timeInterval) | `double`  | Retrieves the travel time for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
 | GetTime(int originIdx, int destinationIdx, int timeIntervalIdx) | `double`  | Retrieves the travel time for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-=======
-| GetDistance(int originIdx, int destinationIdx) | double | Retrives the travel distance for a specified origin-destination pair. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-| GetDistance(int originIdx, int destinationIdx, DateTime timeInterval) | double | Retrives the travel distance for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-| GetDistance(int originIdx, int destinationIdx, int timeIntervalIdx) | double | Retrives the travel distance for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-| GetDistances(int originIdx, int destinationIdx) | double[] | Gets all travel distances for the specified origin and destination index, ordered by time (ascending). |
-| GetEdgeDistance(int[] waypointIndicies) | double | Retrieves the total travel distance between all waypoints indicies which represent an edge (graph/path). If a path between to waypoints is not routable, a large distance value will be returned.| 
-| GetEdgeDistance(int[] waypointIndicies, bool isRoundTrip) | double | Retrieves the total travel distance between all waypoints indicies which represent an edge (graph/path). If a path between to waypoints is not routable, a large distance value will be returned.| 
-| GetEdgeTime(int[] waypointIndicies) | double | Retrieves the total travel time between all waypoints indicies which represent an edge (graph/path). If a path between to waypoints is not routable, a large time value will be returned. |
-| GetEdgeTime(int[] waypointIndicies, bool isRoundTrip) | double | Retrieves the total travel time between all waypoints indicies which represent an edge (graph/path). If a path between to waypoints is not routable, a large time value will be returned.|
-| GetTime(int originIdx, int destinationIdx) | double | Retrives the travel time for a specified origin-destination pair. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-| GetTime(int originIdx, int destinationIdx, DateTime timeInterval) | double | Retrieves the travel time for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
-| GetTime(int originIdx, int destinationIdx, int timeIntervalIdx) | double | Retrieves the travel time for a specified origin-destination pair and time interval. Returns -1 if a cell can not be found in the results or had an error in calculation. |
->>>>>>> ms-master/master
 | GetTimes(int originIdx, int destinationIdx) | double[] | Gets all travel times for the specified origin and destination index, ordered by time (ascending). |
 
 ### Properties
@@ -1149,11 +980,7 @@ An indexing system has been added to the DistanceMatrix class to make it easy to
 | Name                | Type                   | Description    |
 |---------------------|------------------------|----------------|
 | Destinations | [SimpleWaypoint](#SimpleWaypoint)\[\]         | The array of destinations that were used to calculate the distance matrix.                               |
-<<<<<<< HEAD
 | ErrorMessage| `string` | Details of an error that may have occurred when processing the request.  |
-=======
-| ErrorMessage| string | Details of an error that may have occurred when processing the request.  |
->>>>>>> ms-master/master
 | Origins      | [SimpleWaypoint](#SimpleWaypoint)\[\]         | The array of destinations that were used to calculate the distance matrix.                               |
 | Result       | DistanceMatrixCell\[\] | Array of distance matrix cell results containing information for each coordinate pair and time interval. |
 | TimeIntervals | List\<DateTime\> | A list of time intervals in which the distance matrix calculated for. |
@@ -1191,15 +1018,9 @@ The result from a Travelling Salesmen calculation.
 | Name         | Type        | Description                                                     |
 |--------------|-------------|-----------------------------------------------------------------|
 | DistanceMatrix | [DistanceMatrix](#DistanceMatrix) | The distance matrix used in the calculation. |
-<<<<<<< HEAD
 | IsRoundTrip | `bool`  | Indicates if the path is for a round trip and returns to the origin or not. |
 | OptimizedWaypoints | List\<[SimpleWaypoint](#SimpleWaypoint)\>  | A list of the waypoints in an optimized ordered.  |
 | OptimizedWeight | `double`  | The optimized weight (time or distance) between all waypoints based on the TspOptimizationType. |
-=======
-| IsRoundTrip | bool | Indicates if the path is for a round trip and returns to the origin or not. |
-| OptimizedWaypoints | List\<[SimpleWaypoint](#SimpleWaypoint)\>  | A list of the waypoints in an optimized ordered.  |
-| OptimizedWeight | double | The optimized weight (time or distance) between all waypoints based on the TspOptimizationType. |
->>>>>>> ms-master/master
 | TravelMode | [TravelModeType](#TravelModeType) | The travel mode used to calculate the distance matrix. |
 | TspOptimization | [TspOptimizationType](#TspOptimizationType) | The metric used to solve the travelling salesmen problem for. |
 

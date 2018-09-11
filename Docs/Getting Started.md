@@ -96,11 +96,7 @@ The **ServiceManager** class has two static methods; **GetResponseAsync** and **
 
 The following is an example of how to make a geocode request and get the response from the Bing Maps REST services.
 
-<<<<<<< HEAD
 ```Csharp
-=======
-```
->>>>>>> ms-master/master
 //Create a request.
 var request = new GeocodeRequest()
 {
@@ -128,11 +124,7 @@ if(response != null &&
 
 Here is the same code sample using the **ServiceManager**.
 
-<<<<<<< HEAD
 ```Csharp
-=======
-```
->>>>>>> ms-master/master
 //Create a request.
 var request = new GeocodeRequest()
 {
@@ -162,11 +154,7 @@ if(response != null &&
 
 The following is an example of how to request a map image from the Bing Maps REST services to retrieve the image stream.
 
-<<<<<<< HEAD
 ```Csharp
-=======
-```
->>>>>>> ms-master/master
 //Create an image request.
 var request = new ImageryRequest()
 {
@@ -233,11 +221,7 @@ This toolkit provides some classes which wrap the routing and distance matrix AP
 The travelling salesmen functionality is exposed in two ways; 
  - A TravellingSalesmen class which takes in a set of waypoints or a distance matrix and optimizes the waypoints. This uses a greedy algrithm when 10 or less waypoints are specified, and a genetic algorithm for larger waypoint sets. Here is an example of how to implement this:
 
-<<<<<<< HEAD
  ```Csharp
-=======
- ```C#
->>>>>>> ms-master/master
  var tspResult = await TravellingSalesmen.Solve(new List<SimpleWaypoint>(){
         new SimpleWaypoint("Seattle, WA"),
         new SimpleWaypoint("Bellevue, WA"),
@@ -250,11 +234,7 @@ The travelling salesmen functionality is exposed in two ways;
 
  - A WaypointOptimization option has been added to the RouteRequest class which, when set, will optimize the waypoints before calculating the requested route. Here is an example of how to implement this:
 
-<<<<<<< HEAD
  ```Csharp
-=======
- ```C#
->>>>>>> ms-master/master
 var routeRequest = new RouteRequest()
 {
     Waypoints = new List<SimpleWaypoint>(){
