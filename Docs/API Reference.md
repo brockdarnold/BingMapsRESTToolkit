@@ -1,32 +1,6 @@
 # Table of contents 
 
 * [Request Classes](#RequestClasses)
-<<<<<<< HEAD
-    - [Base Classes](#base-classes)
-        - [BaseRestRequest Class](#BaseRestRequest) 
-        - [BaseImageryRestRequest Class](#BaseImageryRestRequest)
-    - [Time Zone API](#TimeZoneAPI)
-        - [FindTimeZoneRequest Class](#FindTimeZoneRequest) 
-        - [ConvertTimeZoneRequest](#ConvertTimeZoneRequest)
-        - [ListTimeZoneRequest](#ListTimeZonesRequest)
-    - [Locations API](#locations-api)
-        - [GeocodeRequest Class](#GeocodeRequest)
-        - [ReverseGeocodeRequest Class](#ReverseGeocodeRequest)
-        - [LocationRecogRequest Class](#LocationRecogRequest)
-    - [Routes API](#routes-api)
-        - [DistanceMatrixRequest Class](#DistanceMatrixRequest)
-        - [IsochroneRequest Class](#IsochroneRequest)
-        - [RouteMajorRoadsRequest Class](#RouteMajorRoadsRequest) 
-        - [RouteRequest Class](#RouteRequest) 
-        - [SnapToRoadRequest Class](#SnapToRoadRequest)
-        - [TrafficRequest Class](#TrafficRequest) 
-    - [Elevation API](#elevation-api)
-        - [ElevationRequest Class](#ElevationRequest)  
-    - [Imagery API](#imagery-api) 
-        - [ImageryMetadataRequest Class](#ImageryMetadataRequest) 
-        - [ImageryRequest Class](#ImageryRequest) 
-
-=======
     - [BaseRestRequest Class](#BaseRestRequest) 
     - [BaseImageryRestRequest Class](#BaseImageryRestRequest) 
     - [DistanceMatrixRequest Class](#DistanceMatrixRequest)
@@ -40,7 +14,6 @@
     - [RouteRequest Class](#RouteRequest) 
     - [SnapToRoadRequest Class](#SnapToRoadRequest)
     - [TrafficRequest Class](#TrafficRequest) 
->>>>>>> ms-master/master
 * [Common Classes](#CommonClasses) 
     - [BoundingBox Class](#BoundingBox) 
     - [Coordinate Class](#Coordinate) 
@@ -84,7 +57,6 @@ This documentation does not include the class definitions for the REST Response.
 
 # <a name="RequestClasses"></a> Request Classes
 
-<<<<<<< HEAD
 ## Base Classes
 
 ### <a name="BaseRestRequest"></a> `BaseRestRequest` Class
@@ -403,263 +375,6 @@ A request that calculates routes between waypoints. Inherits from the BaseRestRe
 |`Waypoints`  | `List<SimpleWaypoint>` | Specifies two or more locations that define the route and that are in sequential order. A route is defined by a set of waypoints and viaWaypoints (intermediate locations that the route must pass through). You can have a maximum of 25 waypoints, and a maximum of 10 viaWaypoints between each set of waypoints. The start and end points of the route cannot be viaWaypoints. |
 
 #### Extended Properties
-=======
-## <a name="BaseRestRequest"></a> BaseRestRequest Class
-
-An abstract class in which all REST service requests derive from.
-
-### Methods
-
-| Name            | Return Type | Description                                                     |
-|-----------------|-------------|-----------------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Abstract method which generates the Bing Maps REST request URL. |
-
-### Properties
-
-| Name         | Type        | Description                                                     |
-|--------------|-------------|-----------------------------------------------------------------|
-| BingMapsKey  | string      | The Bing Maps key for making the request.                       |
-| Culture      | string      | The culture to use for the request.                             |
-| Domain       | string      | The domain of the REST service. Default: https://dev.virtualearth.net/REST/v1/ |
-| UserIp       | string      | An Internet Protocol version 4 (IPv4) address.                  |
-| UserLocation | [Coordinate](#Coordinate)  | The user’s current position.                                    |
-| UserMapView  | [BoundingBox](#BoundingBox) | The geographic region that corresponds to the current viewport. |
-
-## <a name="BaseImageryRestRequest"></a> BaseImageryRestRequest Class
-
-Abstract class that all Imagery rest requests will derive from. Inherits from the BaseRestRequest class and currently exposes all the same properties and methods.
-
-## <a name="DistanceMatrixRequest"></a> Distance Matrix Request
-
- A request that calculates a distance matrix between origins and destinations. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name                      | Return Type            | Description    |
-|---------------------------|------------------------|----------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GeocodeWaypoints() | Task | Geocodes the origins and destinations.  |
-| GetEuclideanDistanceMatrix() | Task\<[DistanceMatrix](#DistanceMatrix)\> | Calculates a Distance Matrix for the origins and destinations based on the euclidean distance (straight line/as the crow flies). This calculation only uses; Origins, Destinations, and Distance Units properties from the request and only calculates travel distance. |
-| GetNumberOfCoordinatePairs()       | int                 | Returns the number of coordinate pairs that would be in the resulting matrix based on the number of origins and destinations in the request. |
-| GetPostRequestBody()       | string                 | Returns a JSON string object representing the request. |
-| GetRequestUrl()           | string                 | Gets the request URL to perform a query for a distance matrix when using POST. |
-
-### Properties
-
-| Name           | Type                   | Description   |
-|------------|-------------|
-| Origins    | List\<[SimpleWaypoint](#SimpleWaypoint)\> |**Required**. List of origins.  |
-| Destinations   | List\<[SimpleWaypoint](#SimpleWaypoint)\> | **Required**. List of destinations. |
-| TravelMode     | [TravelModeType](#TravelModeType) | **Required**. Specifies the mode of transportation to use when calculating the distance matrix. |
-| StartTime      | DateTime | **Optional for Driving**. Specifies the start or departure time of the matrix to calculate and uses predictive traffic data. |
-| EndTime        | DateTime | **Optional for Driving**. If specified, a matrix based on traffic data with contain a histogram of travel times and distances for the specified resolution intervals (default is 15 minutes) between the start and end times. A start time must be specified for the request to be valid and the total time between start and end cannot be greater than 24 hours.  |
-| Resolution     | int | **Optional for Driving**. The number of intervals to calculate a histogram of data for each cell where a single interval is a quarter of an hour. Can be one of the following values:<br/><br/> • **1** - 15 minutes<br/> • **2** - 30 minutes<br/> • **3** - 45 minutes<br/> • **4** - an hour<br/><br/>If start time is specified and `resolution` is not, it will default to an interval of 1 (15 minutes).<br/><br/>**Example**: resolution=2 |
-| DistanceUnit   | [DistanceUnitType](#DistanceUnitType) | **Optional.** The units to use for distances in the response. |
-| TimeUnit       | [TimeUnitType](#TimeUnitType) | **Optional.** The units to use for time durations in the response. |
-| VehicleSpec | [VehicleSpec](#VehicleSpec) | Truck routing specific vehicle attribute.  |
-
-## <a name="ElevationRequest"></a> ElevationRequest Class
-
-A request for elevation data. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name                      | Return Type            | Description    |
-|---------------------------|------------------------|----------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetElevationCoordinates() | List\<[Coordinate](#Coordinate)\> | Gets a list of coordinates that are related to the returned index of the elevation data.                                                                                            |
-| GetPointsAsString()       | string                 | Returns the Point information as a formatted string. Only the first 1024 points will be used. Example: `points=38.8895,77.0501,38.8877,-77.0472,38.8904,-77.0474,38.8896,77.0351` |
-| GetPostRequestUrl()       | string                 | Gets a URL for requesting elevation data for a POST request.                                                                                                                        |
-| GetRequestUrl()           | string                 | Gets a URL for requesting elevation data for a GET request.                                                                                                                         |
-
-### Properties
-
-| Name           | Type                   | Description                     |
-|----------------|------------------------|---------------------------------|
-| Bounds         | [BoundingBox](#BoundingBox)            | Specifies the rectangular area over which to provide elevation values.                                                                                                                                                                           |
-| Col            | int                    | Specifies the number of columns to use to divide the bounding box area into a grid. The rows and columns that define the bounding box each count as two (2) of the rows and columns. Elevation values are returned for all vertices of the grid. |
-| GetGeoidOffset | bool                   | A boolean indicating if the offset from the geoid should be returned. Requires a list of points to be specified.                                                                                                                                 |
-| Height         | [ElevationType](#ElevationType)          | Specifies which sea level model to use to calculate elevation.                                                                                                                                                                                   |
-| Points         | List\<[Coordinate](#Coordinate)\> | A set of coordinates on the Earth to use in elevation calculations. The exact use of these points depends on the type of elevation request. Overrides the Bounds value if both are specified. The maximum number of points is 1024.              |
-| Row            | int                    | Specifies the number of rows to use to divide the bounding box area into a grid. The rows and columns that define the bounding box each count as two (2) of the rows and columns. Elevation values are returned for all vertices of the grid.    |
-| Samples        | int                    | Specifies the number of equally-spaced elevation values to provide along a polyline path. Used when Points value is set. Make = 1024                                                                                                             |
-| Bounds         | [BoundingBox](#BoundingBox)            | Specifies the rectangular area over which to provide elevation values.                                                                                                                                                                           |
-
-## <a name="GeocodeRequest"></a> GeocodeRequest Class
-
-Geocodes a query to its coordinates. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description       |
-|-----------------|-------------|-------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL. If both a Query and Address are specified, the Query value will be used. Throws an exception if a Query or Address value is not specified. |
-
-### Properties
-
-| Name                | Type          | Description         |
-|---------------------|---------------|---------------------|
-| Address             | [SimpleAddress](#SimpleAddress) | The Address to geocode.    |
-| IncludeIso2         | bool          | When you specified the two-letter ISO country code is included for addresses in the response. |
-| IncludeNeighborhood | bool          | Specifies to include the neighborhood in the response when it is available.                   |
-| MaxResults          | int           | Specifies the maximum number of locations to return in the response.                          |
-| Query               | string        | A free form string address or Landmark. Overrides the Address values if both are specified.   |
-
-## <a name="ImageryMetadataRequest"></a> ImageryMetadataRequest Class
-
-Requests imagery metadata information from Bing Maps. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                |
-|-----------------|-------------|--------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL. Throws an exception if a zoom level is not specified when a centerPoint is specified when ImagerySet is Road, Aerial and AerialWithLabels. |
-
-### Properties
-
-| Name                    | Type        | Description                     |
-|-------------------------|-------------|---------------------------------|
-| CenterPoint             | [Coordinate](#Coordinate)  | Required when imagerySet is Birdseye or BirdseyeWithLabels. Optional for other imagery sets. The center point to use for the imagery metadata.      |
-| GetBasicInfo            | bool        | Get only the basic metadata for an imagery set at a specific location. This URL does not return a map tile URL.                                     |
-| ImagerySet              | [ImageryType](#ImageryType) | The type of imagery for which you are requesting metadata.                                                                                          |
-| IncludeImageryProviders | bool        | When you specified the two-letter ISO country code is included for addresses in the response.                                                       |
-| Orientation             | double      | The orientation of the viewport to use for the imagery metadata. This option only applies to Birdseye imagery.                                      |
-| UseHTTPS                | bool        | When set to true tile URL's will use HTTPS.                                                                                                         |
-| ZoomLevel               | int         | Required if a centerPoint is specified and imagerySet is set to Road, Aerial or AerialWithLabels The level of zoom to use for the imagery metadata. |
-
-## <a name="ImageryRequest"></a> ImageryRequest Class
-
-Requests an image from the REST imagery service. Inherits from the BaseImageryRestRequest class.
-
-### Methods
-
-| Name                  | Return Type | Description                |
-|-----------------------|-------------|----------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetPostRequestUrl()   | string      | Gets a URL for requesting imagery data for a POST request.  |
-| GetPushpinsAsString() | string      | Returns the Pushpin information as a formatted string.      |
-| GetRequestUrl()       | string      | Gets the request URL. If both a Query and Address are specified, the Query value will be used. Throws an exception if a Query or Address value is not specified. |
-
-### Properties
-
-| Name            | Type                       | Description   |
-|-----------------|----------------------------|----------------|
-| CenterPoint     | [Coordinate](#Coordinate)                 | Required when imagerySet is Birdseye or BirdseyeWithLabels. Optional for other imagery sets. The center point to use for the imagery metadata.                         |
-| DeclutterPins   | bool                       | Specifies whether to change the display of overlapping pushpins so that they display separately on a map.  |
-| EntityType      | [EntityType](#EntityType)                 | Indicates the type of entity that should be highlighted. The entity of this type that contains the centerPoint will be highlighted. Supported EntityTypes: CountryRegion, AdminDivision1, or PopulatedPlace.   |
-| Format          | [ImageFormatType](#ImageFormatType)            | The image format to use for the static map.                        |
-| GetMetadata     | bool                       | Optional. Specifies whether to return metadata for the static map instead of the image. The static map metadata includes the size of the static map and the placement and size of the pushpins on the static map.   |
-| HighlightEntity | bool                       | Highlights a polygon for an entity.      |
-| ImagerySet      | [ImageryType](#ImageryType)                | The type of imagery for which you are requesting metadata.        |
-| MapArea         | [BoundingBox](#BoundingBox)                | Required when a center point or set of route points are not specified. The geographic area to display on the map.        |
-| MapHeight       | int                        | The height of the map. Default is **350px**.  |
-| MapWidth        | int                        | The width of the map. Default is **350px**.   |
-| Pushpins        | List\<[ImageryPushpin](#ImageryPushpin)\>| List of pushpins to display on the map.                            |
-| Query           | string                     | A query string that is used to determine the map location to display. |
-| RouteOptions    | [RouteOptions](#RouteOptions)               | Options for calculating route.  |
-| ShowTraffic     | bool                       | Specifies if the traffic flow layer should be displayed on the map or not. Default is **false**. |
-| Style           | string | The custom map style to apply to the image. |
-| Waypoints       | List\<[SimpleWaypoint](#SimpleWaypoint)\> | Specifies two or more locations that define the route and that are in sequential order. A route is defined by a set of waypoints and viaWaypoints (intermediate locations that the route must pass through). You can have a maximum of 25 waypoints, and a maximum of 10 viaWaypoints between each set of waypoints. The start and end points of the route cannot be viaWaypoints. |
-| ZoomLevel       | int                        | The level of zoom to display.  |
-
-
-## <a name="IsochroneRequest"></a> IsochroneRequest Class
-
-Requests a that requests an isochrone (drive time polygon). Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                              |
-|-----------------|-------------|----------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL for an asynchronous isochrone request. |
-
-### Properties
-
-| Name                | Type                   | Description    |
-|---------------------|------------------------|----------------|
-| DateTime | DateTime | The dateTime parameter identifies the desired time to be used when calculating an isochrone route. This is supported for driving. When calculating, driving routes the route optimization type should be TimeWithTraffic. The route time will be used as the departure time. |
-| DistanceUnits | [DistanceUnitType](#DistanceUnitType) | The units in which the maxTime value is specified. |                                                                              
-| MaxDistance | double | The maximum travel distance in the specified distance units in which the isochrone polygon is generated. Cannot be set when maxTime is set. |
-| MaxTime | double | The maximum travel time in the specified time units in which the isochrone polygon is generated. Cannot be set when maxDistance is set. Maximum value is 120 minutes. |
-| Optimize                | [RouteOptimizationType](#RouteOptimizationType)          | Specifies what parameters to use to optimize the isochrone route. One of the following values:<br/><br/>• distance: The route is calculated to minimize the distance. Traffic information is not used. Use with maxDistance.<br/>• time [default]: The route is calculated to minimize the time. Traffic information is not used. Use with maxTime.<br/>• timeWithTraffic: The route is calculated to minimize the time and uses current or predictive traffic information depending on if a dateTime value is specified. Use with maxTime. |
-| TimeUnit | [TimeUnitType](#TimeUnitType) | The units in which the maxTime value is specified. Default: **Seconds** |
-| TravelMode | [TravelModeType](#TravelModeType) | The mode of travel for the route. Default: Driving.  |
-| Waypoint | [SimplyWaypoint](#SimplyWaypoint) | The point around which the isochrone will be calculated. |
-
-## <a name="ReverseGeocodeRequest"></a> ReverseGeocodeRequest Class
-
-Requests a that converts a coordinate into a location such as an address. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                              |
-|-----------------|-------------|----------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL to perform a reverse geocode query. |
-
-### Properties
-
-| Name                | Type                   | Description    |
-|---------------------|------------------------|----------------|
-| IncludeEntityTypes  | List\<[EntityType](#EntityType)\> | Specifies the entity types that you want to return in the response. Only the types you specify will be returned. If the point cannot be mapped to the entity types you specify, no location information is returned in the response. |
-| IncludeIso2         | bool                   | When you specified the two-letter ISO country code is included for addresses in the response.                                  |
-| IncludeNeighborhood | bool                   | Specifies to include the neighborhood in the response when it is available.                                                    |
-| Point               | [Coordinate](#Coordinate)             | A central coordinate to perform the nearby search.                                                           |
-
-## <a name="RouteMajorRoadsRequest"></a> RouteMajorRoadsRequest Class
-
-Requests routes from a location to major nearby roads. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                    |
-|-----------------|-------------|------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL to perform a query for routes using major roads. |
-
-### Properties
-
-| Name                | Type                           | Description   |
-|---------------------|--------------------------------|---------------|
-| Destination         | [SimpleWaypoint](#SimpleWaypoint)                 | Specifies the final location for all the routes. A destination can be specified as a Point, a landmark, or an address.   |
-| DistanceUnits       | [DistanceUnitType](#DistanceUnitType)               | The units to use for distance.                                                                |
-| ExcludeInstructions | bool                           | Specifies to return only starting points for each major route in the response. When this option is not specified, detailed directions for each route are returned. |
-| RouteAttributes     | List\<[RouteAttributeType](#RouteAttributeType)\> | Specifies to include or exclude parts of the routes response.  |
-
-## <a name="RouteRequest"></a> RouteRequest Class
-
-A request that calculates routes between waypoints. Inherits from the BaseRestRequest class.
-
-### Methods
-
-| Name            | Return Type | Description                                                   |
-|-----------------|-------------|---------------------------------------------------------------|
-| Execute()       | Task\<Response\> | Executes the request.                                        |
-| Execute(Action\<int\> remainingTimeCallback) | Task\<Response\> | Executes the request.             |
-| GetRequestUrl() | string      | Gets the request URL to perform a query for route directions. |
-
-### Properties
-
-| Name         | Type                       | Description       |
-|--------------|----------------------------|-------------------|
-| RouteOptions | [RouteOptions](#RouteOptions) | Options to use when calculate route.  |
-| Waypoints    | List\<[SimpleWaypoint](#SimpleWaypoint)\> | Specifies two or more locations that define the route and that are in sequential order. A route is defined by a set of waypoints and viaWaypoints (intermediate locations that the route must pass through). You can have a maximum of 25 waypoints, and a maximum of 10 viaWaypoints between each set of waypoints. The start and end points of the route cannot be viaWaypoints. |
-
-### Extended Properties
->>>>>>> ms-master/master
 
 Some additional options have been added to the route request to increase its functionality. 
 
@@ -822,11 +537,11 @@ Snaps a set of coordinates to roads. Inherits from the BaseRestRequest class.
 
 | Name         | Type                       | Description       |
 |--------------|----------------------------|-------------------|
-| Points | List\<Coordinate\> | A set of points to snap to roads. Up to 100  points may be passed in. |
+| Points | List\<Coordinate\> | A set of points to snap to roads. Up to 100 ï¿½points may be passed in. |
 | Interpolate | bool | Indicates if the space between the snapped points should be filled with additional points along the road, thus returning the full route path. Default: false |
 | IncludeSpeedLimit | bool | Indicates if speed limitation data should be returned for the snapped points. Default: false |
-| IncludeTruckSpeedLimit  | bool | Indicates if speed limitation data should be returned for the snapped points. Default: false |
-| SpeedUnit  | [SpeedUnitType](#SpeedUnitType) | Indicates the units in which the returned speed limit data is in. |
+| IncludeTruckSpeedLimitï¿½ | bool | Indicates if speed limitation data should be returned for the snapped points. Default: false |
+| SpeedUnitï¿½ | [SpeedUnitType](#SpeedUnitType) | Indicates the units in which the returned speed limit data is in. |
 | TravelMode | [TravelModeType](#TravelModeType)  | Indicates which routing profile to snap the points to. Default: Driving |
 
 ## <a name="TrafficRequest"></a> TrafficRequest Class
@@ -1186,7 +901,7 @@ Relative elevation type.
 <<<<<<< HEAD
 | Sealevel   | Geoid Earth model (EGM2008 2.5-). |
 =======
-| Sealevel   | Geoid Earth model (EGM2008 2.5’). |
+| Sealevel   | Geoid Earth model (EGM2008 2.5ï¿½). |
 >>>>>>> ms-master/master
 
 ## <a name="EntityType"></a> EntityType Enumeration
@@ -1264,10 +979,10 @@ Types of map imagery.
 | BirdseyeV2            | The second generation Bird-s eye (oblique-angle) imagery.      |
 | BirdseyeV2WithLabels  | The second generation Bird-s eye (oblique-angle) imagerywith a road overlay. |
 =======
-| Birdseye            | Bird’s eye (oblique-angle) imagery      |
-| BirdseyeWithLabels  | Bird’s eye imagery with a road overlay. |
-| BirdseyeV2            | The second generation Bird’s eye (oblique-angle) imagery.      |
-| BirdseyeV2WithLabels  | The second generation Bird’s eye (oblique-angle) imagerywith a road overlay. |
+| Birdseye            | Birdï¿½s eye (oblique-angle) imagery      |
+| BirdseyeWithLabels  | Birdï¿½s eye imagery with a road overlay. |
+| BirdseyeV2            | The second generation Birdï¿½s eye (oblique-angle) imagery.      |
+| BirdseyeV2WithLabels  | The second generation Birdï¿½s eye (oblique-angle) imagerywith a road overlay. |
 >>>>>>> ms-master/master
 | CanvasDark | A dark version of the road maps. |
 | CanvasGray | A grayscale version of the road maps. |
@@ -1287,7 +1002,7 @@ The type of route attributes to include in a route response.
 <<<<<<< HEAD
 | RoutePath           | Include a set of point (latitude and longitude) values that describe the route-s path in the response.                                                                               |
 =======
-| RoutePath           | Include a set of point (latitude and longitude) values that describe the route’s path in the response.                                                                               |
+| RoutePath           | Include a set of point (latitude and longitude) values that describe the routeï¿½s path in the response.                                                                               |
 >>>>>>> ms-master/master
 | RouteSummariesOnly  | Include only travel time and distance for the route, and does not provide other information.                                                                                         |
 | TransitStops        | Include information about transit stops for transit routes.                                                                                                                          |
